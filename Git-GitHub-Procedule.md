@@ -206,10 +206,52 @@ Copy the HTTPS URL: https://github.com/brianmccln/gitouttatown.git
   git branch brian-branch
 
   // switch to the new branch
-  git checkout brian-branch
+  git checkout brian-branch  // notice as you work that the result of all CLI commands is reflected in VSCode GUI
+  // so, after switching to brian-branch, it has switched from master to brain-branch in the lower left corner
   
+  // see what's in brian-branch -- so far it should be an exact copy of master branch
+  
+  // make a new file in brian-branch
+  touch gallery.html // just a blank file instead of echoing a tag
+  // in VSCode, open gallery.html and type ! to add basic tags.
+  // add some minimalist content:
+   <title>Multimedia Gallery</title>
+    <h1>Welcome to Our Multimedia Gallery!</h1>
+    <h2>Slideshows</h2>
+    <h2>Videos</h2>
+    <h2>Audio Interviews</h2>
+    <h2>Animation</h2>
+
+  // stage and commit gallery.html
+  git add gallery.html    // or just git add .
+  git commit -m 'add multimedia gallery page'
 
   # Push the new branch up to GitHub
+  // push while simultaneously instructing GitHub to make a new brian-branch for this:
+  git push --set-upstream origin brian-branch
+
+  // the next push is just "git push" since it already knows to go to brian-branch
+
+  // make another file: games.html
+  touch games.html
+
+  // Open games.html in VSCode and type ! to add basic tags.
+
+  // add some minimalist content:
+  <title>Games</title>
+    <h1>Blackjack</h1>
+   <h2>Memory Matching Game</h2>
+   <h2>Fun Quiz</h2>
+
+  // see the unstaged new file in red:
+  git status
+
+  // stage and commit the new file
+  git add games.html
+  git commit -m 'add games page with blackjack, memory matching game and fun quiz'
+
+  // ?!?!?!? When I ran git push it said that I had already done it..
+  // make some changes to games.html and try add-commit-push again
 
   # Merge Conflicts: Make Remote and Local changes to the same file and Pull
 
