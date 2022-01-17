@@ -252,9 +252,52 @@ Copy the HTTPS URL: https://github.com/brianmccln/gitouttatown.git
 
   // ?!?!?!? When I ran git push it said that I had already done it..
   // make some changes to games.html and try add-commit-push again
+  // this is because this file Git-GitHub-Procedure.md was changed and not staged
 
-  # Merge Conflicts: Make Remote and Local changes to the same file and Pull
+  // change games.html and take it from the top with add-commit-push, this time adding all:
+  git add .
 
-  # Merge a Branch into master
+  git commit -m 'Chinese Zodiac Animals Educational Game added'
 
-  # Clone a repo: Make a Remote Repo and bring it down so you can work on it locally
+  git push
+
+  // go back to GitHub and refresh repo to see that games.html has the new content:
+  <h2>Chinese Zodiac Animals Educational Game</h2>
+  
+# -- MERGE BRANCH --
+// make a new branch called branch-to-merge and switch to it
+git branch branch-to-merge
+git checkout branch-to-merge
+
+// add an html page to branch-to-merge
+touch privacy.html
+
+// open privacy.html in VSCode and type ! on line 1
+// make a title and h1 called Privacy Policy
+// add a p tag with a sentence of gibberish about privacy policy
+
+// make another html page to branch-to-merge
+touch faq.html
+
+// open faq.html in VSCode and type ! on line 1
+// make a title and h1 called Frequently Asked Questions
+// add a p tag with a question: Why should I buy your widgets?
+// add a p tag with an answer: Because our widgets are the best!
+
+// stage and commit the new files
+git add .
+git commit -m 'add privacy and fag pages'
+
+// tell GitHub that we are switching to new brach
+
+# merge branch-to-merge with master branch
+
+
+
+
+
+
+# Clone a Remote Repo: Make a Remote Repository and pull it down to local project folder (local repo)
+
+
+# Resolve Conflicts: Make Remote and Local changes to the same file and merge when pulling
