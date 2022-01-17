@@ -113,34 +113,106 @@ Copy the HTTPS URL: https://github.com/brianmccln/gitouttatown.git
      pwd 
      // cd ~/Documents/Brian/gitouttatown // navigat to gitouttatown folder
 
-  // make extra-sure you are in that folder
+  // make extra-sure the gitouttatown folder has the expected files:
      ls // you should see the contents of the gitouttatown folder
 
-  
   // Initialize the local directory as a Git repository. It will make a default branch called master:
      git init
 
+   // see that git is not yet tracking this folder 
+     git status // "Not a git repository"
 
-  // or keep it simple and let git set default branch to master
-      git init -b main // overrides default name of master branch, renames it main
+   // tell git to start tracking changes to gitouttatown
+      git init  // "Initialized empty Git repository" (empty in that no files committed yet)
 
+  // or override default branch name (master) and call it something else, like main:
+     git init -b main // overrides default name of master branch, renames it main
 
-  // check status
-  git status
+  // now that git has been initialized, check the status again
+  git status // all files show up in RED meaning "Untracked" -- git knows these files exist, but
+  you haven't told git to track them (yet)
+
+  // show the contents -- they are the same as the untracked files in red
+  ls
+
   // see the new invisible .git folder which contains the meta data for tracking changes
-  git ls -la 
+  ls -la  // shows all files PLUS invisible .git folder that plain "ls" does not reveal
 
   // Stages all files for the first commit:
   git add .
 
-  git status // see that the files are all green, meaning staged and ready for commit
+  git status // "Changes to be committed" all files are green (staged and ready to commit)
 
-  git commit -m 'first commit' // don't forget to add message
+  git commit -m 'first commit' // don't forget to add message in quotes
 
-  // tell git the location of the remote repo
+  // tell git the location of the remote repo -- nothing happens yet
   git remote add origin 'https://github.com/brianmccln/gitouttatown.git'
 
-  // push the gitoutoftown contents up to GitHub
+  // push the gitoutoftown contents up to GitHub -- you get a ton of Terminal feedback
   git push -u origin master // next time you just need to say git push
   
-  // go to GitHub and refresh the gitoutoftown page and see if the pages made it there!
+  // go to GitHub and refresh the gitoutoftown repo screen to see if our pages made it..!
+
+  # Make local changes and push them to GitHub again
+
+  // Make some changes to the README.md file
+  Such as: # Some more info about this project
+         The local git repo has already been pushed successfully to GitHub.
+         But now the local repo is being changed with updates to this README file.
+         So, the changes will have to be pushed up to GitHub again.
+
+   // git status to see README.md in red, meaning it's been changed but not staged yet
+   git status
+
+   // stage everything that has been changed
+   git add .  
+   // or to just stage the one file that has had changes made to it:
+   git add README.md 
+
+   // git status to see README.md in greening, meaning it's staged
+   git status
+
+   // commit the staged README.md file:
+   git commit -m 'readme file updated'
+
+   // push the changed README.md file up to GitHub, so that local and remote are in sync:
+   git push
+
+   // go to GitHub and refresh gitouttatown repo. The README.md should have the new content.
+
+  # Make remote changes at GitHub and pull them down to local repo
+
+  // the reverse of making changes locally and pushing them to GitHub is to make changes  
+  // remotely at GitHub and then pulling them down to the local repo
+
+  // go to GitHub gitouttatown repo and copy-paste the code in index.html
+
+  // make a new file called about.html and paste the content into it.
+
+  // change the Welcome title and h1 to say About Us or something appropriate for an about page
+
+  // go back to local repo at VSCode and in the terminal type:
+  git pull // the about.html page appears in the gitouttatown folder.
+  
+  # Make a new local branch, add content to it
+
+  // We want to work on a new section of the website, but keep it separate from the main branch until it is ready./// suppose we are making a gallery page for the website, with slideshows and videos.
+  // we make a new branch, say, gallery, or, to allow for expansion, named for the developer working on it
+  // the new branch will automatically receive all the contents of the master branch
+  // then inside that new branch we make the gallery.html page or whatever else.
+  // then we push the new branch to GitHub where it appears as a new branch.
+
+  // make a new branch
+  git branch brian-branch
+
+  // switch to the new branch
+  git checkout brian-branch
+  
+
+  # Push the new branch up to GitHub
+
+  # Merge Conflicts: Make Remote and Local changes to the same file and Pull
+
+  # Merge a Branch into master
+
+  # Clone a repo: Make a Remote Repo and bring it down so you can work on it locally
